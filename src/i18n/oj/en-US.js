@@ -36,6 +36,7 @@ export const m = {
   Overview: 'Overview',
   Admin_Helper: 'Admin Helper',
   Similar_Check: 'Similar Checker',
+  Question: 'Ask Question',
   // ContestProblemList
   Problems_List: 'Problems List',
 

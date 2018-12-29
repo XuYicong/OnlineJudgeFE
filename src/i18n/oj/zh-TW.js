@@ -36,9 +36,9 @@ export const m = {
   Overview: '概要',
   Admin_Helper: '管理員助手',
   Similar_Check: '相似度檢測',
+  Question: '提問',
   // ContestProblemList.vue
   Problems_List: '試題列表',
-
   // NavBar.vue
   Home: '首頁',
   NavProblems: '試題',
