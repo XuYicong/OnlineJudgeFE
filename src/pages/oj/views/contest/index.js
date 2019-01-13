@@ -4,5 +4,6 @@ const ContestProblemList = () => import(/* webpackChunkName: "contest" */ './chi
 const ContestRank = () => import(/* webpackChunkName: "contest" */ './children/ContestRank.vue')
 const ACMContestHelper = () => import(/* webpackChunkName: "contest" */ './children/ACMHelper.vue')
 const ContestSimilar = () => import(/* webpackChunkName: "contest" */ './children/ContestSimilar.vue')
+const ContestQuestion = () => import(/* webpackChunkName: "contest" */ './children/ContestQuestion.vue')
 
-export {ContestDetails, ContestList, ContestProblemList, ContestRank, ACMContestHelper, ContestSimilar}
+export {ContestDetails, ContestList, ContestProblemList, ContestRank, ACMContestHelper, ContestSimilar, ContestQuestion}

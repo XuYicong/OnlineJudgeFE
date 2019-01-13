@@ -46,6 +46,12 @@
         </VerticalMenu-item>
 
         <VerticalMenu-item :disabled="contestMenuDisabled"
+                           :route="{name: 'contest-question', params: {contestID: contestID}}">
+          <Icon type="chatbubble-working"></Icon>
+          {{$t('m.Question')}}
+        </VerticalMenu-item>
+
+        <VerticalMenu-item :disabled="contestMenuDisabled"
                            :route="{name: 'contest-problem-list', params: {contestID: contestID}}">
           <Icon type="ios-photos"></Icon>
           {{$t('m.Problems')}}
