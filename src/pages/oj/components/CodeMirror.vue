@@ -3,21 +3,27 @@
     <Row type="flex" justify="space-between" class="header">
       <Col :span=12>
       <div>
-        <span>Language:</span>
+        <span>{{$t('m.Language')}}:</span>
         <Select :value="language" @on-change="onLangChange" class="adjust">
           <Option v-for="item in languages" :key="item" :value="item">{{item}}
           </Option>
         </Select>
 
-        <Tooltip content="Reset to default code definition" placement="top" style="margin-left: 10px">
+        <Tooltip :content="this.$i18n.t('m.Reset_to_default_code_definition')" placement="top" style="margin-left: 10px">
           <Button icon="refresh" @click="onResetClick"></Button>
         </Tooltip>
+
+        <Tooltip :content="this.$i18n.t('m.Upload_file')" placement="top" style="margin-left: 10px">
+          <Button icon="upload" @click="onUploadFile"></Button>
+        </Tooltip>
+
+        <input type="file" id="file-uploader" style="display: none" @change="onUploadFileDone">
 
       </div>
       </Col>
       <Col :span=12>
       <div class="fl-right">
-        <span>Theme:</span>
+        <span>{{$t('m.Theme')}}:</span>
         <Select :value="theme" @on-change="onThemeChange" class="adjust">
           <Option v-for="item in themes" :key="item.label" :value="item.value">{{item.label}}
           </Option>
@@ -90,16 +96,16 @@
           gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
           // 选中文本自动高亮，及高亮方式
           styleSelectedText: true,
-          lineWrapping: false,
+          lineWrapping: true,
           highlightSelectionMatches: {showToken: /\w/, annotateScrollbar: true}
         },
         mode: {
           'C++': 'text/x-csrc'
         },
         themes: [
-          {label: 'Monokai', value: 'monokai'},
-          {label: 'Solarized Light', value: 'solarized'},
-          {label: 'Material', value: 'material'}
+          {label: this.$i18n.t('m.Monokai'), value: 'monokai'},
+          {label: this.$i18n.t('m.Solarized_Light'), value: 'solarized'},
+          {label: this.$i18n.t('m.Material'), value: 'material'}
         ]
       }
     },
@@ -128,6 +134,20 @@
       },
       onResetClick () {
         this.$emit('resetCode')
+      },
+      onUploadFile () {
+        document.getElementById('file-uploader').click()
+      },
+      onUploadFileDone () {
+        let f = document.getElementById('file-uploader').files[0]
+        let fileReader = new window.FileReader()
+        let self = this
+        fileReader.onload = function (e) {
+          var text = e.target.result
+          self.editor.setValue(text)
+          document.getElementById('file-uploader').value = ''
+        }
+        fileReader.readAsText(f, 'UTF-8')
       }
     },
     computed: {

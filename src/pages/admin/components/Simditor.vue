@@ -7,13 +7,14 @@
   import 'tar-simditor/styles/simditor.css'
   import 'tar-simditor-markdown'
   import 'tar-simditor-markdown/styles/simditor-markdown.css'
+  import './simditor-file-upload'
 
   export default {
     name: 'Simditor',
     props: {
       toolbar: {
         type: Array,
-        default: () => ['title', 'bold', 'italic', 'underline', 'fontScale', 'color', 'ol', 'ul', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment', '|', 'markdown']
+        default: () => ['title', 'bold', 'italic', 'underline', 'fontScale', 'color', 'ol', 'ul', '|', 'link', 'image', 'uploadfile', 'hr', '|', 'indent', 'outdent', 'alignment', '|', 'markdown']
       },
       value: {
         type: String,
@@ -27,18 +28,20 @@
       }
     },
     mounted () {
-      Simditor.locale = 'en-US'
       this.editor = new Simditor({
         textarea: this.$refs.editor,
         toolbar: this.toolbar,
         pasteImage: true,
-        markdown: true,
+        markdown: false,
         upload: {
           url: '/api/admin/upload_image/',
           params: null,
           fileKey: 'image',
           connectionCount: 3,
-          leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+          leaveConfirm: this.$i18n.t('m.Uploading_is_in_progress')
+        },
+        allowedStyles: {
+          span: ['color']
         }
       })
       this.editor.on('valuechanged', (e, src) => {

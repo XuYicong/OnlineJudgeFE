@@ -8,6 +8,9 @@ export const m = {
   Judge_Server: 'Judge Server',
   Prune_Test_Case: 'Prune Test Case',
   Problem: 'Problem',
+  FromFile: 'From File',
+  ToFile: 'To File',
+  ShareSubmission: 'Share Submission',
   Problem_List: 'Problem List',
   Create_Problem: 'Create Problem',
   Export_Import_Problem: 'Export Or Import Problem',
@@ -31,8 +34,8 @@ export const m = {
   // Announcement.vue
   General_Announcement: 'Announcement',
   Announcement_Title: 'Title',
-  Announcement_Content: 'Conten',
-  Announcement_Status: 'Status',
+  Announcement_Content: 'Content',
+  Announcement_visible: 'Visible',
   // Conf.vue
   SMTP_Config: 'SMTP Config',
   Server: 'Server',
@@ -78,12 +81,24 @@ export const m = {
   SPJ_language: 'SPJ language',
   Compile: 'Compile',
   TestCase: 'TestCase',
+  IOMode: 'IO Mode',
+  InputFileName: 'Input File Name',
+  OutputFileName: 'Output File Name',
   Type: 'Type',
   Input: 'Input',
   Output: 'Output',
   Score: 'Score',
   Hint: 'Hint',
   Source: 'Source',
+  Edit_Problem: 'Edit Problme',
+  Add_Problme: 'Add Problem',
+  High: 'High',
+  Mid: 'Mid',
+  Low: 'Low',
+  Tag: 'Tag',
+  New_Tag: 'New Tag',
+   // ProblemList.vue
+  Contest_Problem_List: 'Contest Problem List',
   // Contest.vue
   ContestTitle: 'Title',
   ContestDescription: 'Description',
@@ -101,5 +116,10 @@ export const m = {
   DashBoardJudge_Server: 'Judge Server',
   HTTPS_Status: 'HTTPS Status',
   Force_HTTPS: 'Force HTTPS',
-  CDN_HOST: 'CDN HOST'
+  CDN_HOST: 'CDN HOST',
+  // Login.vue
+  Welcome_to_Login: 'Welcome to Login',
+  GO: 'GO',
+  username: 'username',
+  password: 'password'
 }

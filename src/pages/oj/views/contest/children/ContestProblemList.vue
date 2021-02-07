@@ -5,11 +5,13 @@
       <Table v-if="contestRuleType == 'ACM' || OIContestRealTimePermission"
              :columns="ACMTableColumns"
              :data="problems"
-             no-data-text="No Problems"></Table>
+             @on-row-click="goContestProblem"
+             :no-data-text="$t('m.No_Problems')"></Table>
       <Table v-else
              :data="problems"
              :columns="OITableColumns"
-             no-data-text="No Problems"></Table>
+             @on-row-click="goContestProblem"
+             no-data-text="$t('m.No_Problems')"></Table>
     </Panel>
   </div>
 </template>
@@ -32,15 +34,15 @@
             width: 150
           },
           {
-            title: 'Title',
+            title: this.$i18n.t('m.Title'),
             key: 'title'
           },
           {
-            title: 'Total',
+            title: this.$i18n.t('m.Total'),
             key: 'submission_number'
           },
           {
-            title: 'AC Rate',
+            title: this.$i18n.t('m.AC_Rate'),
             render: (h, params) => {
               return h('span', this.getACRate(params.row.accepted_number, params.row.submission_number))
             }
@@ -53,7 +55,7 @@
             width: 150
           },
           {
-            title: 'Title',
+            title: this.$i18n.t('m.Title'),
             key: 'title'
           }
         ],

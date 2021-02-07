@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <Panel :title="contestId ? 'Contest Problem List' : 'Problem List'">
+    <Panel :title="contestId ? this.$i18n.t('m.Contest_Problem_List') : this.$i18n.t('m.Problem_List')">
       <div slot="header">
         <el-input
           v-model="keyword"
@@ -197,7 +197,7 @@
         })
       },
       deleteProblem (id) {
-        this.$confirm('You can only delete the problem that doesn\'t have submissions, continue?', 'Delete Problem', {
+        this.$confirm('Sure to delete this problem? The associated submissions will be deleted as well.', 'Delete Problem', {
           type: 'warning'
         }).then(() => {
           let funcName = this.routeName === 'problem-list' ? 'deleteProblem' : 'deleteContestProblem'
