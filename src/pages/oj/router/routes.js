@@ -115,6 +115,11 @@ export default [
         name: 'acm-helper',
         path: 'helper',
         component: Contest.ACMContestHelper
+      },
+      {
+        name: 'contest-question',
+        path: 'question',
+        component: Contest.ContestQuestion
       }
     ]
   },

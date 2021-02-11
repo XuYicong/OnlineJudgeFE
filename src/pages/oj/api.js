@@ -297,6 +297,31 @@ export default {
         contest_id: Contestid
       }
     })
+  },
+  ContestGetQuestionList (Contestid) {
+    return ajax('contest/question', 'get', {
+      params: {
+        contest_id: Contestid
+      }
+    })
+  },
+  ContestPostQuestion (data) {
+    return ajax('contest/question', 'post', {
+      data
+    })
+  },
+  ContestDeleteQuestion (Contestid, Questionid) {
+    return ajax('contest/question', 'delete', {
+      params: {
+        contest_id: Contestid,
+        id: Questionid
+      }
+    })
+  },
+  ContestAnswerQuestion (data) {
+    return ajax('admin/contest/answer_question/', 'put', {
+      data
+    })
   }
 }
 
